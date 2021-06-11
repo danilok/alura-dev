@@ -1,0 +1,7 @@
+.conteudo__editor-wc {
+  background: var(--bg-editor);
+  padding-top: 1rem;
+  padding-left: 1rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}

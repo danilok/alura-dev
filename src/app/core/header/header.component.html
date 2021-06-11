@@ -1,0 +1,16 @@
+<header class="cabecalho container">
+  <app-ad-logo></app-ad-logo>
+  <app-ad-input-busca [exibeBusca]=exibeBusca></app-ad-input-busca>
+  <div class="cabecalho__opt">
+    <ul class="cabecalho__nav">
+      <li class="cabecalho__nav-link cabecalho__nav-busca" (click)="mostrarBusca()">
+        <span class="cabecalho__nav-botao"><i class="fa fa-search"></i></span>
+      </li>
+      <li class="cabecalho__nav-link" (click)="mostrarMenuNav()">
+        <span id="spanMenu" class="cabecalho__nav-botao"><i id="iconeMenu" [ngStyle]="fonteIcone" [class]="iconeMenu"></i></span>
+      </li>
+    </ul>
+    <app-ad-usuario></app-ad-usuario>
+  </div>
+  <app-ad-menu *ngIf="exibeMenu" (navigate)="navegar($event)"></app-ad-menu>
+</header>

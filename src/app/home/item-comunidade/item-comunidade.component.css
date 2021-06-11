@@ -1,0 +1,24 @@
+.conteudo__comunidade-container {
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.conteudo__comunidade-editor {
+  height: 100%;
+  background: var(--bg-editor);
+  border: none;
+  height: 270px;
+  width: 100%;
+  padding: 1rem;
+  color: #fefefe;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.24);
+  resize: none;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.conteudo__comunidade-editor {
+  cursor: pointer;
+}

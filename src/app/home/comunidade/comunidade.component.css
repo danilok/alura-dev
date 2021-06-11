@@ -1,0 +1,18 @@
+app-ad-lista {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Desktop  */
+@media screen and (min-width: 1024px) {
+  app-ad-lista {
+    width: 80%;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

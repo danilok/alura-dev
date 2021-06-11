@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import "~/node_modules/reset-css/reset.css"; */
+@import "~reset-css/reset.css";
+
+:root {
+  --dark: #051d3b;
+  --strong: #5081fb;
+  --normal: #7ba4fc;
+  --light: #96b9fd;
+  --branco: #ffffff;
+  --bright: #fefefe;
+
+  --bg-codigo: #6bd1ff;
+  --bg-editor: #141414;
+  --bg-menu: #2d415b;
+
+  --fonte: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--dark);
+  font-family: var(--fonte);
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.input-padrao {
+  background: rgba(255, 255, 255, 0.16);
+  border: none;
+  border-radius: 0.5rem;
+  height: 3.5rem;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0 14px;
+  color: #fefefe;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.input-padrao:hover {
+  background: rgba(255, 255, 255, 0.24);
+}

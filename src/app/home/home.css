@@ -1,0 +1,43 @@
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+
+.conteudo__titulo {
+  line-height: 1.2rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--branco);
+  font-size: 0.75rem;
+}
+
+app-ad-nav {
+  width: 20%;
+  display: block;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .conteudo {
+    margin-top: 2rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .conteudo {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .conteudo__menu-esquerdo {
+    width: auto;
+    display: block;
+  }
+}

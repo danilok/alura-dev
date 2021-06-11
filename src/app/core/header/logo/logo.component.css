@@ -1,0 +1,15 @@
+.cabecalho__logo {
+  width: 70%;
+}
+
+.cabecalho__imagem {
+  width: 145px;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .cabecalho__logo {
+    width: 20%;
+    padding-left: 1rem;
+  }
+}

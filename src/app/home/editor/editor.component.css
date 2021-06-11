@@ -1,0 +1,16 @@
+app-ad-codigo {
+  flex-grow: 1;
+}
+
+/* Desktop  */
+@media screen and (min-width: 1024px) {
+  app-ad-codigo {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+  }
+
+  app-ad-configuracoes {
+    width: 20%;
+  }
+}
