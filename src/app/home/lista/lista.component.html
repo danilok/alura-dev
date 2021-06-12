@@ -2,4 +2,7 @@
   <div *ngFor="let item of itens" class="conteudo__item">
     <app-ad-item-comunidade [item]="item"></app-ad-item-comunidade>
   </div>
+  <div *ngIf="itens.length === 0" class="conteudo__sem_projetos">
+    <p>Não há projeto salvos :(<br>Crie um agora mesmo indo para o editor!</p>
+  </div>
 </section>

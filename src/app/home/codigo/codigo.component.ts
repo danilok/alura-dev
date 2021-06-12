@@ -1,4 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { EditorService } from './../editor/editor.service';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 import { HighlightService } from '../../shared/services/highlight/highlight.service';
 
@@ -7,11 +10,12 @@ import { HighlightService } from '../../shared/services/highlight/highlight.serv
   templateUrl: './codigo.component.html',
   styleUrls: ['./codigo.component.css']
 })
-export class CodigoComponent implements OnChanges {
+export class CodigoComponent implements OnChanges, OnInit, OnDestroy {
 
   @Input() corBorda: string;
   @Input() linguagem: string;
 
+  debounce: Subject<string> = new Subject<string>();
   styleCorBorda = { 'background-color': '#CCC' };
   codeClass = 'language-js';
 
@@ -27,7 +31,20 @@ const unfold = (f, seed) => {
   return go(f, seed, [])
 }`;
 
-  constructor(private highlightService: HighlightService) { }
+  constructor(
+    private editorService: EditorService,
+    private highlightService: HighlightService
+  ) { }
+
+  ngOnInit(): void {
+    this.debounce
+      .pipe(debounceTime(300))
+      .subscribe(codeContent => this.updateCode(codeContent));
+  }
+
+  ngOnDestroy(): void {
+    this.debounce.unsubscribe();
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.corBorda) {
@@ -41,5 +58,9 @@ const unfold = (f, seed) => {
 
   aplicarHighlight(): void {
     this.highlightService.highlightAll();
+  }
+
+  updateCode(codeContent): void {
+    this.editorService.atualizarCodigo(codeContent);
   }
 }

@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
 
   comunidade = false;
   editor = false;
+  admin = false;
 
   constructor(
     private router: Router
@@ -23,10 +24,17 @@ export class MenuComponent implements OnInit {
       case '/home/editor':
         this.editor = true;
         this.comunidade = !this.editor;
+        this.admin = !this.editor;
         break;
       case '/home/comunidade':
         this.comunidade = true;
         this.editor = !this.comunidade;
+        this.admin = !this.comunidade;
+        break;
+      case '/home/admin':
+        this.admin = true;
+        this.editor = !this.admin;
+        this.comunidade = !this.admin;
         break;
     }
   }

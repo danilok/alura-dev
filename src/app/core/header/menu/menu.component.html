@@ -9,6 +9,11 @@
         <a (click)="navegarPara('/home/comunidade')"><i class="fa fa-users cabecalho__nav-icone" [class.cabecalho__nav-icone--ativo]="comunidade"></i>
           Comunidade</a>
       </li>
+      <li class="cabecalho__nav-opt">
+        <a (click)="navegarPara('/home/admin')"><i class="fa fa-users cabecalho__nav-icone"
+            [class.cabecalho__nav-icone--ativo]="admin"></i>
+          Administração</a>
+      </li>
     </ul>
     <app-ad-usuario pos="nav"></app-ad-usuario>
   </div>

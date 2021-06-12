@@ -1,27 +1,53 @@
 <section class="conteudo__configuracoes">
-  <div class="conteudo__projeto">
-    <h2 class="conteudo__titulo">Seu projeto</h2>
-    <input type="text" name="projeto" class="conteudo__projeto-nome input-padrao" placeholder="Nome do seu projeto">
-    <textarea name="descricao" class="conteudo__projeto-descricao input-padrao"
-      placeholder="Descrição do seu projeto"></textarea>
-  </div>
-  <div class="conteudo__personalizacao">
-    <h2 class="conteudo__titulo">Personalização</h2>
-    <div class="conteudo__personalizacao-dados">
-      <div class="conteudo__linguagem">
-        <select id="linguagens" class="conteudo__projeto-linguagem" name="linguagem" (change)="mudarLinguagem($event)">
-          <option value="javascript">Javascript</option>
-          <option value="html">HTML</option>
-          <option value="css">CSS</option>
-        </select>
-      </div>
-      <div class="conteudo__cor">
-        <input id="cor" type="color" class="conteudo__projeto-cor input-padrao" name="cor-fundo" [(value)]="corBorda"
-          (change)="mudarCorBorda($event)">
+  <form [formGroup]="configForm" (submit)="salvarProjeto()">
+    <div class="conteudo__projeto">
+      <h2 class="conteudo__titulo">Seu projeto</h2>
+      <input
+        formControlName="titulo"
+        type="text"
+        name="projeto"
+        class="conteudo__projeto-nome input-padrao"
+        placeholder="Nome do seu projeto">
+      <textarea
+        formControlName="descricao"
+        name="descricao"
+        class="conteudo__projeto-descricao input-padrao"
+        placeholder="Descrição do seu projeto">
+      </textarea>
+    </div>
+    <div class="conteudo__personalizacao">
+      <h2 class="conteudo__titulo">Personalização</h2>
+      <div class="conteudo__personalizacao-dados">
+        <div class="conteudo__linguagem">
+          <select
+            formControlName="linguagem"
+            id="linguagens"
+            class="conteudo__projeto-linguagem"
+            name="linguagem"
+            (change)="mudarLinguagem($event)"
+            placeholder="Selecione uma linguagem"
+          >
+            <option value="js">Javascript</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+          </select>
+        </div>
+        <div class="conteudo__cor">
+          <input
+            formControlName="cor"
+            id="cor"
+            type="color"
+            class="conteudo__projeto-cor input-padrao"
+            name="cor-fundo"
+            [(value)]="corBorda"
+            (change)="mudarCorBorda($event)">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="conteudo__salvar-container">
-    <input type="button" class="conteudo__salvar input-padrao" value="Salvar projeto">
-  </div>
+    <div class="conteudo__salvar-container">
+      <button [disabled]="configForm.invalid" class="conteudo__salvar input-padrao">
+        Salvar projeto
+      </button>
+    </div>
+  </form>
 </section>

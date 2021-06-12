@@ -20,6 +20,13 @@
   --fonte: "Inter", sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+}
+/* Angular Material */
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
 body {
   background-color: var(--dark);
   font-family: var(--fonte);

@@ -13,6 +13,7 @@ export class NavComponent implements OnInit {
 
   comunidade = false;
   editor = false;
+  admin = false;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -23,10 +24,17 @@ export class NavComponent implements OnInit {
         case 'editor':
           this.editor = true;
           this.comunidade = !this.editor;
+          this.admin = !this.editor;
           break;
         case 'comunidade':
           this.comunidade = true;
           this.editor = !this.comunidade;
+          this.admin = !this.comunidade;
+          break;
+        case 'admin':
+          this.admin = true;
+          this.editor = !this.admin;
+          this.comunidade = !this.admin;
           break;
       }
     });

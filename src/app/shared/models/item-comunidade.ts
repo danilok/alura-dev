@@ -1,4 +1,5 @@
 export interface ItemComunidade {
+  id?: number;
   codigo: string;
   cor: string;
   titulo: string;
@@ -7,4 +8,5 @@ export interface ItemComunidade {
   numFavoritos: number;
   imagemUrl: string;
   usuario: string;
+  linguagem: string;
 }

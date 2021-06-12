@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ItemComunidade } from './../item-comunidade';
+import { ItemComunidade } from 'src/app/shared/models/item-comunidade';
 
 @Component({
   selector: 'app-ad-item-comunidade',

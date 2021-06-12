@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ItemComunidade } from './../item-comunidade';
+import { ItemComunidade } from 'src/app/shared/models/item-comunidade';
+import { IdbService } from 'src/app/shared/services/idb/idb.service';
 
 @Component({
   selector: 'app-ad-lista',
@@ -25,50 +26,12 @@ const unfold = (f, seed) => {
 
   itens: ItemComunidade[] = [];
 
-  constructor() { }
+  constructor(private idbService: IdbService) { }
 
   ngOnInit(): void {
-    this.itens = [
-      {
-        codigo: this.exemplo,
-        cor: '#6bd1ff',
-        titulo: 'Título do projeto 1',
-        descricao: 'Essa é a descrição do meu projeto 1',
-        numComentarios: 3,
-        numFavoritos: 1,
-        imagemUrl: 'https://picsum.photos/32',
-        usuario: 'Challenger'
-      },
-      {
-        codigo: this.exemplo,
-        cor: '#9AFF6B',
-        titulo: 'Título do projeto 2',
-        descricao: 'Essa é a descrição do meu projeto 2',
-        numComentarios: 3,
-        numFavoritos: 4,
-        imagemUrl: 'https://picsum.photos/32',
-        usuario: 'Challenger'
-      },
-      {
-        codigo: this.exemplo,
-        cor: '#FFC46B',
-        titulo: 'Título do projeto 3',
-        descricao: 'Essa é a descrição do meu projeto 3',
-        numComentarios: 4,
-        numFavoritos: 2,
-        imagemUrl: 'https://picsum.photos/32',
-        usuario: 'Challenger'
-      },
-      {
-        codigo: this.exemplo,
-        cor: '#FF6BCD',
-        titulo: 'Título do projeto 4',
-        descricao: 'Essa é a descrição do meu projeto 4',
-        numComentarios: 1,
-        numFavoritos: 2,
-        imagemUrl: 'https://picsum.photos/32',
-        usuario: 'Challenger'
-      }
-    ];
+    this.idbService.getAll(this.idbService.codigosDb)
+      .subscribe((codigos) => {
+        this.itens = codigos;
+      });
   }
 }

@@ -2,6 +2,7 @@ import { NavComponent } from './nav/nav.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { CoreModule } from '../core/core.module';
 import { EditorComponent } from './editor/editor.component';
@@ -14,6 +15,9 @@ import { ListaComponent } from './lista/lista.component';
 import { ItemComunidadeComponent } from './item-comunidade/item-comunidade.component';
 import { WindowControlsModule } from '../shared/components/window-controls/window-controls.modules';
 import { CardComponent } from './card/card.component';
+import { IdbService } from '../shared/services/idb/idb.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +29,20 @@ import { CardComponent } from './card/card.component';
     ItemComunidadeComponent,
     ListaComponent,
     ComunidadeComponent,
+    AdminComponent,
     HomeComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     WindowControlsModule,
     CoreModule,
+    MatSnackBarModule,
     RouterModule,
     HomeRoutingModule
+  ],
+  providers: [
+    IdbService
   ]
 })
 export class HomeModule { }

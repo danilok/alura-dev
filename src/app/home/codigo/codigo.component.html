@@ -2,7 +2,13 @@
   <div class="conteudo__codigo-container" [ngStyle]="styleCorBorda">
     <app-ad-wc></app-ad-wc>
     <div class="conteudo__editor">
-      <pre><code [ngClass]="codeClass" contenteditable="true">{{ exemplo }}</code></pre>
+      <pre><code
+        [ngClass]="codeClass"
+        contenteditable="true"
+        [textContent]="exemplo"
+        (input)="debounce.next($event.target.textContent)">
+        </code>
+      </pre>
     </div>
   </div>
   <div class="conteudo__highlight-container">

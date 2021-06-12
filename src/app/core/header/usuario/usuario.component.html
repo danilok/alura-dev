@@ -1,4 +1,4 @@
 <div [ngClass]="class">
-  <img src="https://picsum.photos/32" class="cabecalho__avatar">
-  <span class="cabecalho__nome">Challenger</span>
+  <img [src]="user.imagemUrl" class="cabecalho__avatar">
+  <span class="cabecalho__nome">{{ user.name }}</span>
 </div>

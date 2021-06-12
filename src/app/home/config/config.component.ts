@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { EditorService } from '../editor/editor.service';
 
 @Component({
   selector: 'app-ad-configuracoes',
@@ -8,12 +11,28 @@ import { Component, EventEmitter, Output } from '@angular/core';
     './config.component.css'
   ]
 })
-export class ConfigComponent {
+export class ConfigComponent implements OnInit {
 
   @Output() cor = new EventEmitter<string>();
   @Output() linguagem = new EventEmitter<string>();
 
   corBorda = '#6BD1FF';
+
+  configForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private editorService: EditorService
+  ) { }
+
+  ngOnInit(): void {
+    this.configForm = this.formBuilder.group({
+      titulo: ['', Validators.required],
+      descricao: ['', Validators.required],
+      linguagem: ['js', Validators.required],
+      cor: [this.corBorda, Validators.required]
+    });
+  }
 
   mudarCorBorda(e): void {
     this.corBorda = e.target.value;
@@ -22,5 +41,10 @@ export class ConfigComponent {
 
   mudarLinguagem(e): void {
     this.linguagem.emit(e.target.value);
+  }
+
+  salvarProjeto(): void {
+    this.editorService.atualizarDadosConfig(this.configForm.getRawValue());
+    this.editorService.notificarSalvar();
   }
 }

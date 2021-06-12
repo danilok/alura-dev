@@ -11,6 +11,17 @@
   flex-wrap: wrap;
 }
 
+.conteudo__sem_projetos {
+  text-align: center;
+  color: var(--branco);
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
 /* Desktop  */
 @media screen and (min-width: 1024px) {
   .conteudo__comunidade {
@@ -27,5 +38,10 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 0.5rem;
+  }
+
+  .conteudo__sem_projetos {
+    width: 80%;
+    font-size: 2rem;
   }
 }

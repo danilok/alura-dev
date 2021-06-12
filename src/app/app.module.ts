@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app.routing.module';
 import { CoreModule } from './core/core.module';
 import { ErrorsModule } from './errors/errors.module';
 import { HighlightService } from './shared/services/highlight/highlight.service';
+import { IdbModule } from './shared/services/idb/idb.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,9 +17,13 @@ import { HighlightService } from './shared/services/highlight/highlight.service'
     BrowserModule,
     CoreModule,
     ErrorsModule,
-    AppRoutingModule
+    IdbModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
-  providers: [HighlightService],
+  providers: [
+    HighlightService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

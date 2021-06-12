@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ItemComunidade } from './../item-comunidade';
+
+import { ItemComunidade } from 'src/app/shared/models/item-comunidade';
 
 @Component({
   selector: 'app-ad-card',
