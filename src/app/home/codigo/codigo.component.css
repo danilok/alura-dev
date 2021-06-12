@@ -26,6 +26,13 @@ pre[class*="language-"] {
 
 code {
   white-space: pre-wrap;
+  display: block;
+  border: none;
+  overflow: auto;
+}
+
+[contenteditable] {
+  outline: 0px solid transparent;
 }
 
 .conteudo__highlight-container {
