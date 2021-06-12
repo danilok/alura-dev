@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ItemComunidade } from './../item-comunidade';
 
 @Component({
   selector: 'app-ad-card',
@@ -7,7 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CardComponent implements OnInit {
+
+  @Input() item: ItemComunidade;
+
+  favoritado = false;
+
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit(): void { }
+
+  clickComentario(): void {
+    alert('Funcionalidade não implementada');
+  }
+
+  clickFavorito(): void {
+    this.favoritado = !this.favoritado;
+    if (this.favoritado) {
+      this.item.numFavoritos++;
+    } else {
+      this.item.numFavoritos--;
+    }
+  }
 }

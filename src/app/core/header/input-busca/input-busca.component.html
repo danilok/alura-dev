@@ -1,3 +1,10 @@
-<div class="cabecalho__busca">
-  <input type="text" name="Busca" class="cabecalho__pesquisa" placeholder="Busque por algo">
+<div class="cabecalho__busca" *ngIf="exibeBusca">
+  <input
+    type="text"
+    name="Busca"
+    class="cabecalho__pesquisa"
+    placeholder="Busque por algo"
+    (keyup)="debounce.next($event.target.value)"
+    [value]="value"
+    >
 </div>

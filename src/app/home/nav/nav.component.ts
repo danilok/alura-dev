@@ -1,5 +1,5 @@
 import { Component,  OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap, UrlTree, PRIMARY_OUTLET, UrlSegmentGroup, UrlSegment } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ad-nav',

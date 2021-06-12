@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "~/node_modules/reset-css/reset.css"; */
 @import "~reset-css/reset.css";
+@import "~prismjs/plugins/toolbar/prism-toolbar.css";
+@import "~prismjs/themes/prism-okaidia";
 
 :root {
   --dark: #051d3b;
@@ -9,9 +11,10 @@
   --light: #96b9fd;
   --branco: #ffffff;
   --bright: #fefefe;
+  --fav: #f65151;
 
   --bg-codigo: #6bd1ff;
-  --bg-editor: #141414;
+  --bg-editor: #272822;
   --bg-menu: #2d415b;
 
   --fonte: "Inter", sans-serif;

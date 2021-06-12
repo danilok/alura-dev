@@ -9,15 +9,15 @@
     <h2 class="conteudo__titulo">Personalização</h2>
     <div class="conteudo__personalizacao-dados">
       <div class="conteudo__linguagem">
-        <select id="linguagens" class="conteudo__projeto-linguagem" name="linguagem">
+        <select id="linguagens" class="conteudo__projeto-linguagem" name="linguagem" (change)="mudarLinguagem($event)">
           <option value="javascript">Javascript</option>
           <option value="html">HTML</option>
           <option value="css">CSS</option>
         </select>
       </div>
       <div class="conteudo__cor">
-        <input id="cor" type="color" class="conteudo__projeto-cor input-padrao" name="cor-fundo" value="#6BD1FF"
-          (change)="mudarCorBorda()">
+        <input id="cor" type="color" class="conteudo__projeto-cor input-padrao" name="cor-fundo" [(value)]="corBorda"
+          (change)="mudarCorBorda($event)">
       </div>
     </div>
   </div>

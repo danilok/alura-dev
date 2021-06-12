@@ -15,9 +15,7 @@
 @media screen and (min-width: 1024px) {
   .conteudo__comunidade {
     align-items: flex-start;
-    justify-content: space-between;
     flex-direction: row;
-    flex-wrap: wrap;
   }
 
   .conteudo__item {

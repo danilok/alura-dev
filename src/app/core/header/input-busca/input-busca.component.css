@@ -1,5 +1,5 @@
 .cabecalho__busca {
-  display: none;
+  display: block;
 
   position: absolute;
   top: 0.1rem;
@@ -48,6 +48,8 @@
     padding: 0px 14px;
     color: var(--bright);
     box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 400;
   }
 
   .cabecalho__pesquisa:hover {

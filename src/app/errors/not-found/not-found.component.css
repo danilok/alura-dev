@@ -1,0 +1,10 @@
+div {
+  text-align: center;
+  color: var(--branco);
+  text-transform: capitalize;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}

@@ -1,5 +1,5 @@
 <main class="conteudo container">
   <app-ad-nav></app-ad-nav>
-  <app-ad-codigo></app-ad-codigo>
-  <app-ad-configuracoes></app-ad-configuracoes>
+  <app-ad-codigo [corBorda]="corBorda" [linguagem]="linguagem"></app-ad-codigo>
+  <app-ad-configuracoes (cor)="corBorda = $event" (linguagem)="linguagem = $event"></app-ad-configuracoes>
 </main>

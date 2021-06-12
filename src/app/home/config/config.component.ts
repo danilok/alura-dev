@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-ad-configuracoes',
@@ -9,10 +9,18 @@ import { Component } from '@angular/core';
   ]
 })
 export class ConfigComponent {
-  mudarCorBorda(): void {
-    console.log('mudei')
-    // const editor = document.querySelector('.conteudo__codigo-container');
-    // const seletorCor = document.querySelector('#cor');
-    // editor.style.backgroundColor = seletorCor.value;
+
+  @Output() cor = new EventEmitter<string>();
+  @Output() linguagem = new EventEmitter<string>();
+
+  corBorda = '#6BD1FF';
+
+  mudarCorBorda(e): void {
+    this.corBorda = e.target.value;
+    this.cor.emit(this.corBorda);
+  }
+
+  mudarLinguagem(e): void {
+    this.linguagem.emit(e.target.value);
   }
 }

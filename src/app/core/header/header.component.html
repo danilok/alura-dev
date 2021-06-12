@@ -1,13 +1,16 @@
 <header class="cabecalho container">
   <app-ad-logo></app-ad-logo>
-  <app-ad-input-busca [exibeBusca]=exibeBusca></app-ad-input-busca>
+  <app-ad-input-busca [exibeBusca]=exibeInputBusca [value]="filtro" (typing)="filtro = $event"></app-ad-input-busca>
   <div class="cabecalho__opt">
     <ul class="cabecalho__nav">
-      <li class="cabecalho__nav-link cabecalho__nav-busca" (click)="mostrarBusca()">
+      <li class="cabecalho__nav-link cabecalho__nav-busca" (click)="clickBusca()" *ngIf="exibeBotaoBusca">
         <span class="cabecalho__nav-botao"><i class="fa fa-search"></i></span>
       </li>
-      <li class="cabecalho__nav-link" (click)="mostrarMenuNav()">
+      <li class="cabecalho__nav-link" (click)="clickMenu()" *ngIf="exibeBotaoMenu">
         <span id="spanMenu" class="cabecalho__nav-botao"><i id="iconeMenu" [ngStyle]="fonteIcone" [class]="iconeMenu"></i></span>
+      </li>
+      <li class="cabecalho__nav-link" (click)="clickFechar()" *ngIf="exibeBotaoFechar">
+        <span id="spanMenu" class="cabecalho__nav-botao"><i class="fa fa-times cabecalho__nav-fechar"></i></span>
       </li>
     </ul>
     <app-ad-usuario></app-ad-usuario>

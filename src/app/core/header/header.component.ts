@@ -1,5 +1,5 @@
-import { Component, HostListener, OnChanges, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ad-header',
@@ -9,54 +9,99 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HeaderComponent {
 
   exibeMenu = false;
-  exibeBusca = false;
+  exibeBotaoMenu = false;
+  exibeInputBusca = false;
+  exibeBotaoBusca = false;
+  exibeBotaoFechar = false;
+  filtro = '';
   iconeMenu = 'fa fa-bars';
   fonteIcone = { 'font-size': '1rem' };
 
-  constructor(private router: Router) { }
+  private tablet = 768;
+  private desktop = 1024;
+
+  constructor(private router: Router) {
+    if (window.outerWidth < this.tablet) {
+      this.exibeBotaoMenu = true;
+      this.exibeInputBusca = false;
+      this.exibeBotaoBusca = true;
+      this.exibeBotaoFechar = false;
+    } else if (window.outerWidth < this.desktop) {
+      this.exibeBotaoMenu = true;
+      this.exibeInputBusca = true;
+      this.exibeBotaoBusca = false;
+      this.exibeBotaoFechar = false;
+    } else {
+      this.exibeBotaoMenu = false;
+      this.exibeInputBusca = true;
+      this.exibeBotaoBusca = false;
+      this.exibeBotaoFechar = false;
+    }
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event): void{
-    if (window.outerWidth > 768) {
-      this.exibeMenu = false;
-      this.iconeMenu = 'fa fa-bars';
-      this.fonteIcone = { 'font-size' : '1rem' };
-    }
-  }
-
-  mostrarMenuNav(): void {
-    console.log('menu');
-    this.exibeMenu = !this.exibeMenu;
-    if (this.exibeMenu || this.exibeBusca) {
-      this.iconeMenu = 'fa fa-times';
-      this.fonteIcone = { 'font-size': '1.25rem' };
-      if (this.exibeBusca) {
-        this.exibeMenu = false;
-        this.exibeBusca = false;
-        this.iconeMenu = 'fa fa-bars';
-        this.fonteIcone = { 'font-size' : '1rem' };
+    if (window.outerWidth >= this.tablet) {
+      if (this.exibeInputBusca) {
+        this.exibeBotaoFechar = false;
       }
-    } else {
-      this.iconeMenu = 'fa fa-bars';
-      this.fonteIcone = { 'font-size' : '1rem' };
+      if (this.exibeMenu) {
+        this.exibeBotaoFechar = true;
+        this.exibeBotaoMenu = false;
+      } else {
+        this.exibeBotaoFechar = false;
+        this.exibeBotaoMenu = true;
+      }
+      this.exibeInputBusca = true;
+      this.exibeBotaoBusca = false;
+    }
+    if (window.outerWidth > this.tablet) {
+      this.exibeMenu = false;
+      this.exibeBotaoMenu = true;
+      this.exibeBotaoFechar = false;
+      this.exibeBotaoBusca = false;
+    }
+    if (window.outerWidth < this.tablet) {
+      if (this.exibeMenu) {
+        this.exibeInputBusca = false;
+        this.exibeBotaoBusca = true;
+      } else if (!this.exibeBotaoBusca) {
+        this.exibeInputBusca = false;
+        this.exibeBotaoBusca = true;
+      }
     }
   }
 
-  mostrarBusca(): void {
-    console.log('busca');
-    this.exibeBusca = !this.exibeBusca;
-    if (this.exibeBusca) {
-      this.iconeMenu = 'fa fa-times';
-      this.fonteIcone = { 'font-size' : '1.25rem' };
-    } else {
-      this.iconeMenu = 'fa fa-bars';
-      this.fonteIcone = { 'font-size' : '1rem' };
+  clickBusca(): void {
+    this.exibeBotaoMenu = false;
+    this.exibeBotaoFechar = true;
+    this.exibeBotaoBusca = true;
+    this.exibeInputBusca = true;
+  }
+
+  clickMenu(): void {
+    this.exibeBotaoMenu = false;
+    this.exibeBotaoFechar = true;
+    this.exibeBotaoBusca = true;
+    this.exibeMenu = true;
+  }
+
+  clickFechar(): void {
+    this.exibeBotaoMenu = true;
+    this.exibeBotaoFechar = false;
+    this.exibeBotaoBusca = true;
+    if (window.outerWidth < this.tablet) {
+      if (this.exibeMenu) {
+        this.exibeInputBusca = false;
+      } else {
+        this.exibeInputBusca = false;
+      }
     }
+    this.exibeMenu = false;
   }
 
   navegar(rota: string): void {
-    // this.exibeMenu = false;
-    this.mostrarMenuNav();
+    this.clickFechar();
     this.router.navigate([rota]);
   }
 }

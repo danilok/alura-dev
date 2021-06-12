@@ -11,8 +11,6 @@ app-ad-lista {
   app-ad-lista {
     width: 80%;
     align-items: flex-start;
-    justify-content: space-between;
     flex-direction: row;
-    flex-wrap: wrap;
   }
 }

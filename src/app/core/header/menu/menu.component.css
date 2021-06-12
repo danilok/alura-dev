@@ -85,10 +85,6 @@
     z-index: 1;
     height: 95vh;
   }
-
-  .cabecalho__nav-busca {
-    display: none;
-  }
 }
 
 /* Desktop  */

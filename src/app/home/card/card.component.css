@@ -1,6 +1,8 @@
 .conteudo__card-container {
   background: rgba(0, 0, 0, 0.16);
   padding: 1.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .conteudo__card-titulo {
@@ -31,6 +33,10 @@
   color: var(--branco);
   margin-right: 0.5rem;
   margin-left: 0.5rem;
+}
+
+.conteudo__card-icone-fav--clicked i {
+  color: var(--fav);
 }
 
 .conteudo__card-icone i {
@@ -71,7 +77,7 @@
   .conteudo__card-favorito {
     background: none;
     padding: 0.5rem;
-    border-radius: 16px;
+    border-radius: 1rem;
   }
 
   .conteudo__card-comentario:hover,

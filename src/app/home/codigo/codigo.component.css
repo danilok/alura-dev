@@ -4,28 +4,24 @@
   border-radius: 0.5rem;
 }
 
-.conteudo__editor-wc {
-  /* background: var(--bg-editor); */
-  padding-top: 1rem;
-  padding-left: 1rem;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-}
-
 .conteudo__editor {
+  background-color: #272822;
   min-height: 100px;
   color: #fefefe;
   box-sizing: border-box;
-  padding: 10px;
   height: 100%;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }
 
-.preview {
-  display: block;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+pre {
+  margin: 0px 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+pre[class*="language-"] {
+  margin: 0;
 }
 
 code {

@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
     './editor.component.css'
   ]
 })
-export class EditorComponent { }
+export class EditorComponent {
+  corBorda = '#6BD1FF';
+  linguagem = 'js';
+ }
