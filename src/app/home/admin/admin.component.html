@@ -1,6 +1,19 @@
 <main class="conteudo container">
   <app-ad-nav></app-ad-nav>
   <div class="admin">
-    <button (click)="clear()">Apagar tudo</button>
+    <h2 class="conteudo__titulo">Projetos</h2>
+    <div class="admin__dados">
+      <p>Projetos salvos: {{ salvos }}</p>
+    </div>
+    <h2 class="conteudo__titulo">Manutenção</h2>
+    <div class="admin__botoes">
+      <button
+        type="button"
+        [disabled]="desabilitarApagar"
+        class="admin__botoes-apagar input-padrao"
+        (click)="clear()">
+        Apagar tudo
+      </button>
+    </div>
   </div>
 </main>

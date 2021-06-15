@@ -7,9 +7,8 @@
   height: 100%;
   background: var(--bg-editor);
   border: none;
-  height: 270px;
   width: 100%;
-  padding: 1rem;
+  max-height: 480px;
   color: #fefefe;
   box-sizing: border-box;
   outline: none;
@@ -17,13 +16,31 @@
   resize: none;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  overflow: hidden;
+}
+
+pre {
+  margin: 0px 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+pre[class*="language-"] {
+  margin: 0;
+}
+
+code {
+  white-space: pre-wrap;
+  display: block;
+  border: none;
+  overflow: auto;
 }
 
 /* Desktop  */
 @media screen and (min-width: 1024px) {
   .conteudo__comunidade-editor {
-    padding: 2rem;
     cursor: pointer;
     overflow: hidden;
+    height: 270px;
   }
 }

@@ -1,5 +1,7 @@
-<div class="conteudo__comunidade-container" (click)="mostrarCodigo()" [ngStyle]="{ background: item.cor }">
+<div class="conteudo__comunidade-container" (click)="mostrarCodigo(item)" [ngStyle]="{ background: item.cor }">
   <app-ad-wc></app-ad-wc>
-  <textarea disabled name="editor" class="conteudo__comunidade-editor">{{ item.codigo }}</textarea>
+  <div class="conteudo__comunidade-editor">
+    <pre><code [textContent]="item.codigo" [ngClass]="codeClass"></code></pre>
+  </div>
 </div>
 <app-ad-card [item]="item"></app-ad-card>

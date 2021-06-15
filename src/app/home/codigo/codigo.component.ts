@@ -19,17 +19,7 @@ export class CodigoComponent implements OnChanges, OnInit, OnDestroy {
   styleCorBorda = { 'background-color': '#CCC' };
   codeClass = 'language-js';
 
-  exemplo = `const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
-
-const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
-
-const unfold = (f, seed) => {
-  const go = (f, seed, acc) => {
-    const res = f(seed)
-    return res ? go(f, res[1], acc.concat([res[0]])) : acc
-  }
-  return go(f, seed, [])
-}`;
+  codigo = '';
 
   constructor(
     private editorService: EditorService,
@@ -37,6 +27,13 @@ const unfold = (f, seed) => {
   ) { }
 
   ngOnInit(): void {
+    const item = this.editorService.getItem();
+    if (item) {
+      this.codigo = item.codigo;
+      this.styleCorBorda = { 'background-color': item.cor };
+      this.codeClass = `language-${item.linguagem}`;
+    }
+
     this.debounce
       .pipe(debounceTime(300))
       .subscribe(codeContent => this.updateCode(codeContent));

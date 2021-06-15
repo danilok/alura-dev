@@ -35,6 +35,10 @@ export class IdbService {
     return this.dbService.getAll(dbName);
   }
 
+  getByKey(dbName: string, key: number): Observable<any> {
+    return this.dbService.getByKey(dbName, key);
+  }
+
   clear(dbName: string): Observable<any> {
     return this.dbService.clear(dbName);
   }
@@ -42,6 +46,10 @@ export class IdbService {
   updateByKey(dbName: string, item: ItemComunidade): Observable<any> {
     return this.dbService
       .update(dbName, item);
-      // .updateByKey(dbName, item, item.usuario);
   }
+
+  deleteByKey(dbName: string, key: number): Observable<any>{
+    return this.dbService.deleteByKey(dbName, key);
+  }
+
 }

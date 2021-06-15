@@ -14,12 +14,15 @@
 .conteudo__sem_projetos {
   text-align: center;
   color: var(--branco);
-  text-transform: capitalize;
   font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
+}
+
+.conteudo__sem_projetos a {
+  text-decoration: underline;
 }
 
 /* Desktop  */

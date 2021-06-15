@@ -7,7 +7,10 @@
         <span class="conteudo__card-icone"><i class="fa fa-comment"></i>{{ item.numComentarios }}</span>
       </div>
       <div class="conteudo__card-favorito" (click)="clickFavorito()">
-        <span class="conteudo__card-icone" [class.conteudo__card-icone-fav--clicked]="favoritado"><i class="fa fa-heart"></i>{{ item.numFavoritos }}</span>
+        <span
+          class="conteudo__card-icone"
+          [class.conteudo__card-icone-fav--clicked]="favoritado"><i class="fa fa-heart"></i>{{ item.numFavoritos }}
+        </span>
       </div>
     </div>
     <div class="conteudo__card-usuario">

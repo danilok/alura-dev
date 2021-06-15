@@ -4,6 +4,7 @@
     name="Busca"
     class="cabecalho__pesquisa"
     placeholder="Busque por algo"
+    autocomplete="off"
     (keyup)="debounce.next($event.target.value)"
     [value]="value"
     >

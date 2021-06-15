@@ -7,7 +7,8 @@
         type="text"
         name="projeto"
         class="conteudo__projeto-nome input-padrao"
-        placeholder="Nome do seu projeto">
+        placeholder="Nome do seu projeto"
+        autocomplete="off">
       <textarea
         formControlName="descricao"
         name="descricao"
@@ -44,9 +45,20 @@
         </div>
       </div>
     </div>
-    <div class="conteudo__salvar-container">
-      <button [disabled]="configForm.invalid" class="conteudo__salvar input-padrao">
+    <div class="conteudo__botoes-container">
+      <button
+         type="submit"
+         [disabled]="configForm.invalid"
+         class="conteudo__salvar input-padrao">
         Salvar projeto
+      </button>
+
+      <button
+        *ngIf="exibirBotaoApagar"
+        class="conteudo__apagar input-padrao"
+        type="button"
+        (click)="apagarProjeto()">
+        Apagar projeto
       </button>
     </div>
   </form>

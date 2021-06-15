@@ -3,6 +3,6 @@
     <app-ad-item-comunidade [item]="item"></app-ad-item-comunidade>
   </div>
   <div *ngIf="itens.length === 0" class="conteudo__sem_projetos">
-    <p>Não há projeto salvos :(<br>Crie um agora mesmo indo para o editor!</p>
+    <p>Não há projeto salvos :(<br>Crie um agora mesmo indo para o <a [routerLink]="['/home/editor']">editor</a>!</p>
   </div>
 </section>
